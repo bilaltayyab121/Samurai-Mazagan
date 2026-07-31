@@ -129,7 +129,7 @@ const Contact = () => {
       <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Japanese%20restaurant%20exterior%20night%20neon%20sign%20entrance%20warm%20welcoming%20lighting&image_size=landscape_16_9"
+            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=80"
             alt="Contact banner"
             className="w-full h-full object-cover opacity-20"
           />
@@ -144,21 +144,23 @@ const Contact = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <span className="text-primary tracking-[0.4em] uppercase text-sm font-medium">Get In Touch</span>
+              <span className="text-primary tracking-[0.4em] uppercase text-sm font-medium">
+                Get In Touch
+              </span>
             </motion.div>
             <motion.h1
               variants={fadeInUp}
               className="text-5xl md:text-7xl lg:text-8xl font-playfair font-bold mb-6 leading-[1.05]"
             >
-              <span className="text-white">Contact</span>{' '}
+              <span className="text-white">Contact</span>{" "}
               <span className="text-gradient">Us</span>
             </motion.h1>
             <motion.p
               variants={fadeInUp}
               className="text-xl text-gray leading-relaxed max-w-2xl mx-auto"
             >
-              We'd love to hear from you! Whether it's a question, feedback, or special request,
-              our team is always ready to help.
+              We'd love to hear from you! Whether it's a question, feedback, or
+              special request, our team is always ready to help.
             </motion.p>
           </motion.div>
         </div>
@@ -178,46 +180,69 @@ const Contact = () => {
                 key={info.title}
                 variants={fadeInUp}
                 transition={{ delay: i * 0.06 }}
-                href={info.action || '#'}
-                target={info.action ? '_blank' : undefined}
-                rel={info.action ? 'noopener noreferrer' : undefined}
+                href={info.action || "#"}
+                target={info.action ? "_blank" : undefined}
+                rel={info.action ? "noopener noreferrer" : undefined}
                 whileHover={{ y: -6 }}
                 className={`p-6 rounded-2xl glass card-hover group ${
-                  info.action ? 'cursor-pointer' : 'cursor-default'
+                  info.action ? "cursor-pointer" : "cursor-default"
                 }`}
               >
-                <div className={`w-14 h-14 rounded-2xl ${info.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <div
+                  className={`w-14 h-14 rounded-2xl ${info.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                >
                   <info.icon className={`w-7 h-7 ${info.color}`} />
                 </div>
-                <h3 className="text-xl font-playfair font-bold text-white mb-1">{info.title}</h3>
-                <p className="text-white/80 text-sm font-medium mb-1 break-all">{info.primary}</p>
+                <h3 className="text-xl font-playfair font-bold text-white mb-1">
+                  {info.title}
+                </h3>
+                <p className="text-white/80 text-sm font-medium mb-1 break-all">
+                  {info.primary}
+                </p>
                 <p className="text-gray text-xs">{info.secondary}</p>
               </motion.a>
             ))}
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            <motion.div variants={fadeInLeft} className="relative order-2 lg:order-1">
+            <motion.div
+              variants={fadeInLeft}
+              className="relative order-2 lg:order-1"
+            >
               <div className="h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl glass-strong border border-white/10 relative z-10">
                 <MapContainer
                   ref={mapRef}
-                  center={[restaurantData.address.coordinates.lat, restaurantData.address.coordinates.lng]}
+                  center={[
+                    restaurantData.address.coordinates.lat,
+                    restaurantData.address.coordinates.lng,
+                  ]}
                   zoom={16}
                   scrollWheelZoom={false}
-                  style={{ height: '100%', width: '100%', borderRadius: 'inherit' }}
+                  style={{
+                    height: "100%",
+                    width: "100%",
+                    borderRadius: "inherit",
+                  }}
                 >
                   <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
                   <Marker
-                    position={[restaurantData.address.coordinates.lat, restaurantData.address.coordinates.lng]}
+                    position={[
+                      restaurantData.address.coordinates.lat,
+                      restaurantData.address.coordinates.lng,
+                    ]}
                     icon={customIcon}
                   >
                     <Popup>
                       <div className="text-center p-2">
-                        <strong className="text-primary block">{restaurantData.name}</strong>
-                        <span className="text-xs text-gray-600 block">{restaurantData.address.full}</span>
+                        <strong className="text-primary block">
+                          {restaurantData.name}
+                        </strong>
+                        <span className="text-xs text-gray-600 block">
+                          {restaurantData.address.full}
+                        </span>
                       </div>
                     </Popup>
                   </Marker>
@@ -231,7 +256,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <div className="text-xs text-gray">Located in</div>
-                    <div className="font-bold text-white">{restaurantData.address.city}</div>
+                    <div className="font-bold text-white">
+                      {restaurantData.address.city}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -239,9 +266,21 @@ const Contact = () => {
               <div className="mt-6 flex items-center justify-center gap-3">
                 <p className="text-gray text-sm">Follow us:</p>
                 {[
-                  { icon: Instagram, href: restaurantData.social.instagram, color: 'hover:from-pink-500 hover:to-purple-600' },
-                  { icon: Facebook, href: restaurantData.social.facebook, color: 'hover:bg-blue-600' },
-                  { icon: MessageCircle, href: actions.whatsapp, color: 'hover:bg-green-500' }
+                  {
+                    icon: Instagram,
+                    href: restaurantData.social.instagram,
+                    color: "hover:from-pink-500 hover:to-purple-600",
+                  },
+                  {
+                    icon: Facebook,
+                    href: restaurantData.social.facebook,
+                    color: "hover:bg-blue-600",
+                  },
+                  {
+                    icon: MessageCircle,
+                    href: actions.whatsapp,
+                    color: "hover:bg-green-500",
+                  },
                 ].map((s, i) => (
                   <a
                     key={i}
@@ -263,10 +302,12 @@ const Contact = () => {
                     Send Message
                   </span>
                   <h2 className="text-3xl md:text-4xl font-playfair font-bold text-white mb-2">
-                    Let's Start a <span className="text-gradient">Conversation</span>
+                    Let's Start a{" "}
+                    <span className="text-gradient">Conversation</span>
                   </h2>
                   <p className="text-gray">
-                    Have questions or feedback? We respond to every message personally.
+                    Have questions or feedback? We respond to every message
+                    personally.
                   </p>
                 </div>
 
@@ -279,11 +320,17 @@ const Contact = () => {
                     <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-green-500/20 flex items-center justify-center">
                       <CheckCircle2 className="w-12 h-12 text-green-400" />
                     </div>
-                    <h3 className="text-2xl font-playfair font-bold text-white mb-3">Message Sent!</h3>
+                    <h3 className="text-2xl font-playfair font-bold text-white mb-3">
+                      Message Sent!
+                    </h3>
                     <p className="text-gray mb-6">
-                      Thank you for reaching out. Our team will get back to you within 24 hours.
+                      Thank you for reaching out. Our team will get back to you
+                      within 24 hours.
                     </p>
-                    <Button variant="primary" onClick={() => setIsSubmitted(false)}>
+                    <Button
+                      variant="primary"
+                      onClick={() => setIsSubmitted(false)}
+                    >
                       Send Another Message
                     </Button>
                   </motion.div>
@@ -299,11 +346,20 @@ const Contact = () => {
                           type="text"
                           placeholder="John Doe"
                           className={`w-full px-5 py-4 rounded-2xl bg-white/5 border-2 ${
-                            errors.name ? 'border-red-500' : 'border-white/10 focus:border-primary'
+                            errors.name
+                              ? "border-red-500"
+                              : "border-white/10 focus:border-primary"
                           } text-white placeholder-gray focus:outline-none transition-colors duration-300`}
-                          {...register('name', { required: 'Name is required', minLength: 2 })}
+                          {...register("name", {
+                            required: "Name is required",
+                            minLength: 2,
+                          })}
                         />
-                        {errors.name && <p className="text-red-400 text-sm mt-1">{errors.name.message || 'Required'}</p>}
+                        {errors.name && (
+                          <p className="text-red-400 text-sm mt-1">
+                            {errors.name.message || "Required"}
+                          </p>
+                        )}
                       </div>
 
                       <div>
@@ -315,17 +371,23 @@ const Contact = () => {
                           type="email"
                           placeholder="john@example.com"
                           className={`w-full px-5 py-4 rounded-2xl bg-white/5 border-2 ${
-                            errors.email ? 'border-red-500' : 'border-white/10 focus:border-primary'
+                            errors.email
+                              ? "border-red-500"
+                              : "border-white/10 focus:border-primary"
                           } text-white placeholder-gray focus:outline-none transition-colors duration-300`}
-                          {...register('email', {
-                            required: 'Email is required',
+                          {...register("email", {
+                            required: "Email is required",
                             pattern: {
                               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                              message: 'Invalid email'
-                            }
+                              message: "Invalid email",
+                            },
                           })}
                         />
-                        {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email.message || 'Required'}</p>}
+                        {errors.email && (
+                          <p className="text-red-400 text-sm mt-1">
+                            {errors.email.message || "Required"}
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -338,7 +400,7 @@ const Contact = () => {
                         type="tel"
                         placeholder="+212 6XX XXX XXX"
                         className="w-full px-5 py-4 rounded-2xl bg-white/5 border-2 border-white/10 focus:border-primary text-white placeholder-gray focus:outline-none transition-colors duration-300"
-                        {...register('phone')}
+                        {...register("phone")}
                       />
                     </div>
 
@@ -351,11 +413,17 @@ const Contact = () => {
                         type="text"
                         placeholder="How can we help you?"
                         className={`w-full px-5 py-4 rounded-2xl bg-white/5 border-2 ${
-                          errors.subject ? 'border-red-500' : 'border-white/10 focus:border-primary'
+                          errors.subject
+                            ? "border-red-500"
+                            : "border-white/10 focus:border-primary"
                         } text-white placeholder-gray focus:outline-none transition-colors duration-300`}
-                        {...register('subject', { required: 'Subject is required' })}
+                        {...register("subject", {
+                          required: "Subject is required",
+                        })}
                       />
-                      {errors.subject && <p className="text-red-400 text-sm mt-1">Required</p>}
+                      {errors.subject && (
+                        <p className="text-red-400 text-sm mt-1">Required</p>
+                      )}
                     </div>
 
                     <div>
@@ -367,13 +435,20 @@ const Contact = () => {
                         rows={5}
                         placeholder="Tell us about your inquiry..."
                         className={`w-full px-5 py-4 rounded-2xl bg-white/5 border-2 ${
-                          errors.message ? 'border-red-500' : 'border-white/10 focus:border-primary'
+                          errors.message
+                            ? "border-red-500"
+                            : "border-white/10 focus:border-primary"
                         } text-white placeholder-gray focus:outline-none transition-colors duration-300 resize-none`}
-                        {...register('message', { required: 'Message is required', minLength: 10 })}
+                        {...register("message", {
+                          required: "Message is required",
+                          minLength: 10,
+                        })}
                       />
                       {errors.message && (
                         <p className="text-red-400 text-sm mt-1">
-                          {errors.message.type === 'minLength' ? 'Min 10 characters' : 'Required'}
+                          {errors.message.type === "minLength"
+                            ? "Min 10 characters"
+                            : "Required"}
                         </p>
                       )}
                     </div>

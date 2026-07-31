@@ -39,7 +39,7 @@ const Gallery = () => {
       <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=moody%20Japanese%20restaurant%20collage%20sushi%20hotpot%20rooftop%20ambiance%20dining&image_size=landscape_16_9"
+            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=80"
             alt="Gallery collage"
             className="w-full h-full object-cover opacity-20"
           />
@@ -54,7 +54,9 @@ const Gallery = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <span className="text-primary tracking-[0.4em] uppercase text-sm font-medium">Visual Journey</span>
+              <span className="text-primary tracking-[0.4em] uppercase text-sm font-medium">
+                Visual Journey
+              </span>
             </motion.div>
             <motion.h1
               variants={fadeInUp}
@@ -68,8 +70,9 @@ const Gallery = () => {
               variants={fadeInUp}
               className="text-xl text-gray leading-relaxed max-w-2xl mx-auto"
             >
-              A visual journey through the essence of Samurai Mazagan — our ambiance, cuisine,
-              rooftop views, and the unforgettable moments shared by our guests.
+              A visual journey through the essence of Samurai Mazagan — our
+              ambiance, cuisine, rooftop views, and the unforgettable moments
+              shared by our guests.
             </motion.p>
           </motion.div>
         </div>
@@ -83,7 +86,10 @@ const Gallery = () => {
             animate="visible"
             className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-12 p-4 md:p-6 rounded-3xl glass"
           >
-            <motion.div variants={fadeInUp} className="flex flex-wrap gap-2 md:gap-3">
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-wrap gap-2 md:gap-3"
+            >
               {galleryCategories.map((cat, index) => (
                 <motion.button
                   key={cat.id}
@@ -92,32 +98,40 @@ const Gallery = () => {
                   onClick={() => setActiveCategory(cat.id)}
                   className={`px-4 md:px-5 py-2.5 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
                     activeCategory === cat.id
-                      ? 'bg-primary text-white shadow-lg shadow-primary/30'
-                      : 'glass-strong text-white/70 hover:text-white hover:bg-white/10'
+                      ? "bg-primary text-white shadow-lg shadow-primary/30"
+                      : "glass-strong text-white/70 hover:text-white hover:bg-white/10"
                   }`}
                   style={{ transitionDelay: `${index * 20}ms` }}
                 >
                   {cat.name}
                   <span className="ml-2 opacity-60">
-                    ({cat.id === 'all' ? galleryImages.length : galleryImages.filter(i => i.category === cat.id).length})
+                    (
+                    {cat.id === "all"
+                      ? galleryImages.length
+                      : galleryImages.filter((i) => i.category === cat.id)
+                          .length}
+                    )
                   </span>
                 </motion.button>
               ))}
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="flex items-center gap-2 p-1.5 rounded-xl glass-strong">
+            <motion.div
+              variants={fadeInUp}
+              className="flex items-center gap-2 p-1.5 rounded-xl glass-strong"
+            >
               {[
-                { mode: 'masonry', icon: LayoutGrid, label: 'Masonry' },
-                { mode: 'grid2', icon: Grid2x2, label: 'Grid' },
-                { mode: 'grid3', icon: Columns3, label: 'Wide' }
+                { mode: "masonry", icon: LayoutGrid, label: "Masonry" },
+                { mode: "grid2", icon: Grid2x2, label: "Grid" },
+                { mode: "grid3", icon: Columns3, label: "Wide" },
               ].map(({ mode, icon: Icon, label }) => (
                 <button
                   key={mode}
                   onClick={() => setViewMode(mode)}
                   className={`flex items-center gap-2 px-3 md:px-4 py-2 rounded-lg text-sm transition-all duration-300 ${
                     viewMode === mode
-                      ? 'bg-primary text-white'
-                      : 'text-gray hover:text-white'
+                      ? "bg-primary text-white"
+                      : "text-gray hover:text-white"
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -136,8 +150,8 @@ const Gallery = () => {
               transition={{ duration: 0.4 }}
               className={columnsClass}
             >
-              {filteredImages.map((image, index) => (
-                viewMode === 'masonry' ? (
+              {filteredImages.map((image, index) =>
+                viewMode === "masonry" ? (
                   <GalleryCard
                     key={`${activeCategory}-${image.id}`}
                     image={image}
@@ -146,24 +160,24 @@ const Gallery = () => {
                   />
                 ) : (
                   <div key={`${activeCategory}-${image.id}`}>
-                    <GalleryCard
-                      image={image}
-                      index={index}
-                      masonry={false}
-                    />
+                    <GalleryCard image={image} index={index} masonry={false} />
                   </div>
-                )
-              ))}
+                ),
+              )}
             </motion.div>
           </AnimatePresence>
 
           {filteredImages.length === 0 && (
             <div className="text-center py-24">
-              <h3 className="text-2xl font-playfair font-bold text-white mb-3">No Images Found</h3>
-              <p className="text-gray mb-8">No images in this category yet. Check back soon!</p>
+              <h3 className="text-2xl font-playfair font-bold text-white mb-3">
+                No Images Found
+              </h3>
+              <p className="text-gray mb-8">
+                No images in this category yet. Check back soon!
+              </p>
               <Button
                 variant="primary"
-                onClick={() => setActiveCategory('all')}
+                onClick={() => setActiveCategory("all")}
               >
                 View All
               </Button>
@@ -175,7 +189,7 @@ const Gallery = () => {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Japanese%20restaurant%20rooftop%20evening%20sunset%20dining%20panoramic%20view%20string%20lights&image_size=landscape_16_9"
+            src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1600&q=80"
             alt="CTA background"
             className="w-full h-full object-cover opacity-20"
           />
@@ -187,8 +201,9 @@ const Gallery = () => {
               Experience It <span className="text-gradient">In Person</span>
             </h2>
             <p className="text-xl text-gray mb-10 leading-relaxed">
-              Pictures only tell half the story. Come feel the ambiance, savor the flavors,
-              and create your own unforgettable memories at Samurai Mazagan.
+              Pictures only tell half the story. Come feel the ambiance, savor
+              the flavors, and create your own unforgettable memories at Samurai
+              Mazagan.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button variant="primary" size="lg" to="/reservation">

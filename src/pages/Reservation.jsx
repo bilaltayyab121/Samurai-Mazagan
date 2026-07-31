@@ -80,7 +80,7 @@ const Reservation = () => {
       <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=elegant%20restaurant%20table%20setting%20candle%20lit%20wine%20glass%20chopsticks%20Japanese%20dinner%20moody%20lighting&image_size=landscape_16_9"
+            src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80"
             alt="Reservation banner"
             className="w-full h-full object-cover opacity-20"
           />
@@ -95,7 +95,9 @@ const Reservation = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <span className="text-primary tracking-[0.4em] uppercase text-sm font-medium">Book Your Table</span>
+              <span className="text-primary tracking-[0.4em] uppercase text-sm font-medium">
+                Book Your Table
+              </span>
             </motion.div>
             <motion.h1
               variants={fadeInUp}
@@ -109,8 +111,9 @@ const Reservation = () => {
               variants={fadeInUp}
               className="text-xl text-gray leading-relaxed max-w-2xl mx-auto"
             >
-              Secure your table for an unforgettable dining experience. We recommend booking
-              in advance, especially for weekend evenings and rooftop seating.
+              Secure your table for an unforgettable dining experience. We
+              recommend booking in advance, especially for weekend evenings and
+              rooftop seating.
             </motion.p>
           </motion.div>
         </div>
@@ -129,25 +132,25 @@ const Reservation = () => {
               {[
                 {
                   icon: Calendar,
-                  title: 'Easy Online Booking',
-                  desc: 'Reserve 24/7 in under 2 minutes. Instant confirmation.',
-                  color: 'text-primary',
-                  bg: 'bg-primary/10'
+                  title: "Easy Online Booking",
+                  desc: "Reserve 24/7 in under 2 minutes. Instant confirmation.",
+                  color: "text-primary",
+                  bg: "bg-primary/10",
                 },
                 {
                   icon: UtensilsCrossed,
-                  title: 'Special Requests?',
-                  desc: 'Birthdays, anniversaries, dietary needs — we accommodate it all.',
-                  color: 'text-accent',
-                  bg: 'bg-accent/10'
+                  title: "Special Requests?",
+                  desc: "Birthdays, anniversaries, dietary needs — we accommodate it all.",
+                  color: "text-accent",
+                  bg: "bg-accent/10",
                 },
                 {
                   icon: Users,
-                  title: 'Group & Events',
-                  desc: 'Private rooms and rooftop events up to 80 guests.',
-                  color: 'text-green-400',
-                  bg: 'bg-green-400/10'
-                }
+                  title: "Group & Events",
+                  desc: "Private rooms and rooftop events up to 80 guests.",
+                  color: "text-green-400",
+                  bg: "bg-green-400/10",
+                },
               ].map((item, i) => (
                 <motion.div
                   key={item.title}
@@ -156,10 +159,14 @@ const Reservation = () => {
                   whileHover={{ x: 8 }}
                   className="p-6 rounded-2xl glass card-hover"
                 >
-                  <div className={`w-14 h-14 rounded-2xl ${item.bg} flex items-center justify-center mb-4`}>
+                  <div
+                    className={`w-14 h-14 rounded-2xl ${item.bg} flex items-center justify-center mb-4`}
+                  >
                     <item.icon className={`w-7 h-7 ${item.color}`} />
                   </div>
-                  <h3 className="text-xl font-playfair font-bold text-white mb-2">{item.title}</h3>
+                  <h3 className="text-xl font-playfair font-bold text-white mb-2">
+                    {item.title}
+                  </h3>
                   <p className="text-gray leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
@@ -172,13 +179,18 @@ const Reservation = () => {
                 <div className="relative z-10">
                   <div className="flex items-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 text-accent fill-accent" />
+                      <Star
+                        key={i}
+                        className="w-4 h-4 text-accent fill-accent"
+                      />
                     ))}
                   </div>
                   <h4 className="font-playfair text-2xl font-bold text-white mb-1">
                     {restaurantData.rating}/5 Rated Experience
                   </h4>
-                  <p className="text-gray text-sm mb-4">Based on {restaurantData.reviews}+ reviews</p>
+                  <p className="text-gray text-sm mb-4">
+                    Based on {restaurantData.reviews}+ reviews
+                  </p>
                   <div className="flex items-center gap-2 text-sm text-white/70">
                     <MapPin className="w-4 h-4 text-primary" />
                     {restaurantData.address.city}, Morocco
@@ -199,29 +211,38 @@ const Reservation = () => {
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}
                     animate={{ scale: 1, rotate: 0 }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
                     className="w-24 h-24 mx-auto mb-6 rounded-full bg-green-500/20 flex items-center justify-center"
                   >
                     <CheckCircle2 className="w-14 h-14 text-green-400" />
                   </motion.div>
                   <h2 className="text-3xl md:text-4xl font-playfair font-bold text-white mb-4">
-                    Reservation <span className="text-gradient">Confirmed!</span>
+                    Reservation{" "}
+                    <span className="text-gradient">Confirmed!</span>
                   </h2>
                   <p className="text-gray text-lg mb-8 max-w-xl mx-auto">
-                    Thank you for choosing Samurai Mazagan! We've sent a confirmation to your email.
-                    Our team will contact you shortly to confirm all details.
+                    Thank you for choosing Samurai Mazagan! We've sent a
+                    confirmation to your email. Our team will contact you
+                    shortly to confirm all details.
                   </p>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <Button variant="primary" size="lg" to="/menu">
                       Explore Menu
                     </Button>
-                    <Button variant="outline" size="lg" onClick={() => setIsSubmitted(false)}>
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      onClick={() => setIsSubmitted(false)}
+                    >
                       Make Another Reservation
                     </Button>
                   </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit(onSubmit)} className="p-6 md:p-10 rounded-3xl glass-strong space-y-6">
+                <form
+                  onSubmit={handleSubmit(onSubmit)}
+                  className="p-6 md:p-10 rounded-3xl glass-strong space-y-6"
+                >
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
                       <label className="flex items-center gap-2 text-sm font-medium text-white mb-2">
@@ -232,15 +253,22 @@ const Reservation = () => {
                         type="text"
                         placeholder="John Doe"
                         className={`w-full px-5 py-4 rounded-2xl bg-white/5 border-2 ${
-                          errors.name ? 'border-red-500' : 'border-white/10 focus:border-primary'
+                          errors.name
+                            ? "border-red-500"
+                            : "border-white/10 focus:border-primary"
                         } text-white placeholder-gray focus:outline-none transition-colors duration-300`}
-                        {...register('name', {
-                          required: 'Name is required',
-                          minLength: { value: 2, message: 'Name must be at least 2 characters' }
+                        {...register("name", {
+                          required: "Name is required",
+                          minLength: {
+                            value: 2,
+                            message: "Name must be at least 2 characters",
+                          },
                         })}
                       />
                       {errors.name && (
-                        <p className="text-red-400 text-sm mt-1">{errors.name.message}</p>
+                        <p className="text-red-400 text-sm mt-1">
+                          {errors.name.message}
+                        </p>
                       )}
                     </div>
 
@@ -253,18 +281,22 @@ const Reservation = () => {
                         type="email"
                         placeholder="john@example.com"
                         className={`w-full px-5 py-4 rounded-2xl bg-white/5 border-2 ${
-                          errors.email ? 'border-red-500' : 'border-white/10 focus:border-primary'
+                          errors.email
+                            ? "border-red-500"
+                            : "border-white/10 focus:border-primary"
                         } text-white placeholder-gray focus:outline-none transition-colors duration-300`}
-                        {...register('email', {
-                          required: 'Email is required',
+                        {...register("email", {
+                          required: "Email is required",
                           pattern: {
                             value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                            message: 'Invalid email address'
-                          }
+                            message: "Invalid email address",
+                          },
                         })}
                       />
                       {errors.email && (
-                        <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
+                        <p className="text-red-400 text-sm mt-1">
+                          {errors.email.message}
+                        </p>
                       )}
                     </div>
 
@@ -277,15 +309,22 @@ const Reservation = () => {
                         type="tel"
                         placeholder="+212 6XX XXX XXX"
                         className={`w-full px-5 py-4 rounded-2xl bg-white/5 border-2 ${
-                          errors.phone ? 'border-red-500' : 'border-white/10 focus:border-primary'
+                          errors.phone
+                            ? "border-red-500"
+                            : "border-white/10 focus:border-primary"
                         } text-white placeholder-gray focus:outline-none transition-colors duration-300`}
-                        {...register('phone', {
-                          required: 'Phone is required',
-                          minLength: { value: 9, message: 'Enter a valid phone number' }
+                        {...register("phone", {
+                          required: "Phone is required",
+                          minLength: {
+                            value: 9,
+                            message: "Enter a valid phone number",
+                          },
                         })}
                       />
                       {errors.phone && (
-                        <p className="text-red-400 text-sm mt-1">{errors.phone.message}</p>
+                        <p className="text-red-400 text-sm mt-1">
+                          {errors.phone.message}
+                        </p>
                       )}
                     </div>
 
@@ -296,16 +335,20 @@ const Reservation = () => {
                       </label>
                       <select
                         className={`w-full px-5 py-4 rounded-2xl bg-white/5 border-2 ${
-                          errors.guests ? 'border-red-500' : 'border-white/10 focus:border-primary'
+                          errors.guests
+                            ? "border-red-500"
+                            : "border-white/10 focus:border-primary"
                         } text-white focus:outline-none transition-colors duration-300 appearance-none cursor-pointer`}
-                        {...register('guests', { required: true })}
+                        {...register("guests", { required: true })}
                       >
-                        {guestOptions.map(n => (
+                        {guestOptions.map((n) => (
                           <option key={n} value={n} className="bg-secondary">
-                            {n} {n === 1 ? 'Guest' : 'Guests'}
+                            {n} {n === 1 ? "Guest" : "Guests"}
                           </option>
                         ))}
-                        <option value="20+" className="bg-secondary">20+ (Contact us)</option>
+                        <option value="20+" className="bg-secondary">
+                          20+ (Contact us)
+                        </option>
                       </select>
                     </div>
 
@@ -319,12 +362,18 @@ const Reservation = () => {
                         min={getTodayDate()}
                         max={getMaxDate()}
                         className={`w-full px-5 py-4 rounded-2xl bg-white/5 border-2 ${
-                          errors.date ? 'border-red-500' : 'border-white/10 focus:border-primary'
+                          errors.date
+                            ? "border-red-500"
+                            : "border-white/10 focus:border-primary"
                         } text-white focus:outline-none transition-colors duration-300`}
-                        {...register('date', { required: 'Please select a date' })}
+                        {...register("date", {
+                          required: "Please select a date",
+                        })}
                       />
                       {errors.date && (
-                        <p className="text-red-400 text-sm mt-1">{errors.date.message}</p>
+                        <p className="text-red-400 text-sm mt-1">
+                          {errors.date.message}
+                        </p>
                       )}
                     </div>
 
@@ -335,12 +384,18 @@ const Reservation = () => {
                       </label>
                       <select
                         className={`w-full px-5 py-4 rounded-2xl bg-white/5 border-2 ${
-                          errors.time ? 'border-red-500' : 'border-white/10 focus:border-primary'
+                          errors.time
+                            ? "border-red-500"
+                            : "border-white/10 focus:border-primary"
                         } text-white focus:outline-none transition-colors duration-300 appearance-none cursor-pointer`}
-                        {...register('time', { required: true })}
+                        {...register("time", { required: true })}
                       >
-                        {timeSlots.map(time => (
-                          <option key={time} value={time} className="bg-secondary">
+                        {timeSlots.map((time) => (
+                          <option
+                            key={time}
+                            value={time}
+                            className="bg-secondary"
+                          >
                             {time}
                           </option>
                         ))}
@@ -357,7 +412,7 @@ const Reservation = () => {
                       rows={4}
                       placeholder="Dietary restrictions, special occasions, seating preferences, etc."
                       className="w-full px-5 py-4 rounded-2xl bg-white/5 border-2 border-white/10 focus:border-primary text-white placeholder-gray focus:outline-none transition-colors duration-300 resize-none"
-                      {...register('message')}
+                      {...register("message")}
                     />
                   </div>
 
@@ -369,10 +424,16 @@ const Reservation = () => {
                   >
                     <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                     <p className="text-sm text-gray">
-                      By booking, you confirm {selectedGuests || 'X'} guest{selectedGuests !== 1 ? 's' : ''} on{' '}
-                      <span className="text-white font-medium">{selectedDate || 'selected date'}</span> at{' '}
-                      <span className="text-white font-medium">{selectedTime || 'selected time'}</span>.
-                      We'll confirm via email or call.
+                      By booking, you confirm {selectedGuests || "X"} guest
+                      {selectedGuests !== 1 ? "s" : ""} on{" "}
+                      <span className="text-white font-medium">
+                        {selectedDate || "selected date"}
+                      </span>{" "}
+                      at{" "}
+                      <span className="text-white font-medium">
+                        {selectedTime || "selected time"}
+                      </span>
+                      . We'll confirm via email or call.
                     </p>
                   </motion.div>
 
@@ -395,8 +456,11 @@ const Reservation = () => {
                   </button>
 
                   <p className="text-center text-gray text-xs">
-                    Need help? Call us at{' '}
-                    <a href={`tel:${restaurantData.contact.phone}`} className="text-primary hover:underline font-medium">
+                    Need help? Call us at{" "}
+                    <a
+                      href={`tel:${restaurantData.contact.phone}`}
+                      className="text-primary hover:underline font-medium"
+                    >
                       {restaurantData.contact.phone}
                     </a>
                   </p>

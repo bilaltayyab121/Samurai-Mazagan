@@ -15,7 +15,9 @@ const SEO = ({
   const fullTitle = title ? `${title} | ${restaurantData.name}` : `${restaurantData.name} | Japanese Hot Pot & Sushi Restaurant`;
   const fullDescription = description || restaurantData.description;
   const fullKeywords = keywords || `${restaurantData.name}, Japanese Restaurant El Jadida, Hot Pot Morocco, Sushi El Jadida, Asian Dining, Rooftop Restaurant`;
-  const ogImage = image || 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=luxury%20Japanese%20restaurant%20exterior%20night%20Samurai%20Mazagan%20El%20Jadida%20premium%20dining&image_size=square_hd';
+  const ogImage =
+    image ||
+    "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1600&q=80";
 
   const defaultStructuredData = {
     '@context': 'https://schema.org',

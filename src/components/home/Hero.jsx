@@ -50,12 +50,12 @@ const Hero = () => {
         <motion.div
           style={{
             y: parallaxOffset,
-            scale: 1.1
+            scale: 1.1,
           }}
           className="absolute inset-0"
         >
           <img
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=luxurious%20dark%20Japanese%20restaurant%20interior%20atmospheric%20lighting%20sushi%20bar%20elegant%20ambiance%20chinese%20lanterns%20night%20dining&image_size=landscape_16_9"
+            src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1600&q=80"
             alt="Samurai Mazagan Restaurant"
             className="w-full h-full object-cover"
           />
@@ -70,7 +70,7 @@ const Hero = () => {
               600px circle at ${x}px ${y}px,
               rgba(199, 28, 45, 0.15),
               transparent 40%
-            )`
+            )`,
           }}
         />
       </div>
@@ -78,17 +78,36 @@ const Hero = () => {
       <motion.div
         className="absolute top-10 right-10 w-32 h-32 md:w-48 md:h-48 opacity-20"
         animate={{
-          rotate: 360
+          rotate: 360,
         }}
         transition={{
           duration: 60,
           repeat: Infinity,
-          ease: 'linear'
+          ease: "linear",
         }}
       >
-        <svg viewBox="0 0 100 100" className="w-full h-full text-primary fill-current">
-          <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 4" />
-          <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 6" />
+        <svg
+          viewBox="0 0 100 100"
+          className="w-full h-full text-primary fill-current"
+        >
+          <circle
+            cx="50"
+            cy="50"
+            r="48"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="0.5"
+            strokeDasharray="4 4"
+          />
+          <circle
+            cx="50"
+            cy="50"
+            r="38"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="0.5"
+            strokeDasharray="2 6"
+          />
           <path d="M50 10 L52 50 L50 90 L48 50 Z" />
           <path d="M10 50 L50 48 L90 50 L50 52 Z" />
         </svg>
@@ -97,7 +116,7 @@ const Hero = () => {
       <motion.div
         variants={containerVariants}
         initial="hidden"
-        animate={isVisible ? 'visible' : 'hidden'}
+        animate={isVisible ? "visible" : "hidden"}
         className="relative z-10 container-custom pt-24 pb-16 text-center"
       >
         <motion.div
@@ -124,7 +143,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-playfair font-bold mb-6 leading-[0.9]"
         >
-          {text.split('').map((char, i) => (
+          {text.split("").map((char, i) => (
             <motion.span
               key={i}
               initial={{ opacity: 0, y: 100, rotateX: -90 }}
@@ -132,13 +151,13 @@ const Hero = () => {
               transition={{
                 delay: 0.6 + i * 0.04,
                 duration: 0.8,
-                ease: [0.22, 1, 0.36, 1]
+                ease: [0.22, 1, 0.36, 1],
               }}
               className={`inline-block ${
-                i < 7 ? 'text-white' : 'text-gradient'
+                i < 7 ? "text-white" : "text-gradient"
               }`}
             >
-              {char === ' ' ? '\u00A0' : char}
+              {char === " " ? "\u00A0" : char}
             </motion.span>
           ))}
         </motion.h1>
@@ -161,7 +180,10 @@ const Hero = () => {
           <span>Asian Dining</span>
         </motion.p>
 
-        <motion.div variants={itemVariants} className="flex items-center justify-center gap-3 mb-16 text-gray">
+        <motion.div
+          variants={itemVariants}
+          className="flex items-center justify-center gap-3 mb-16 text-gray"
+        >
           <MapPin className="w-5 h-5 text-primary" />
           <span>{restaurantData.address.full}</span>
         </motion.div>
@@ -194,9 +216,9 @@ const Hero = () => {
           className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto"
         >
           {[
-            { value: restaurantData.reviews + '+', label: 'Happy Guests' },
-            { value: '85+', label: 'Signature Dishes' },
-            { value: restaurantData.chefs, label: 'Master Chefs' }
+            { value: restaurantData.reviews + "+", label: "Happy Guests" },
+            { value: "85+", label: "Signature Dishes" },
+            { value: restaurantData.chefs, label: "Master Chefs" },
           ].map((stat, i) => (
             <div key={i} className="p-4 md:p-6 rounded-2xl glass-strong">
               <motion.div
@@ -219,13 +241,15 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2, duration: 0.8 }}
         onClick={() => {
-          document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+          document
+            .getElementById("about")
+            ?.scrollIntoView({ behavior: "smooth" });
         }}
       >
         <span className="text-xs tracking-widest uppercase">Scroll</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
           <ChevronDown className="w-6 h-6 text-primary" />
         </motion.div>

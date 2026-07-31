@@ -22,27 +22,41 @@ const timelineItems = [
 
 const chefs = [
   {
-    name: 'Chef Hiroshi Tanaka',
-    role: 'Executive Head Chef',
-    specialty: 'Sushi & Sashimi Master',
-    experience: '25+ years',
-    bio: 'Trained in Tokyo\'s renowned Tsukiji district, Chef Tanaka brings authentic Edomae sushi craftsmanship to El Jadida.',
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Japanese%20executive%20chef%20Hiroshi%20portrait%20professional%20kitchen%20white%20coat%20serious%20expression%20high%20quality&image_size=portrait_4_3'
+    name: "Chef Hiroshi Tanaka",
+    role: "Executive Head Chef",
+    specialty: "Sushi & Sashimi Master",
+    experience: "25+ years",
+    bio: "Trained in Tokyo's renowned Tsukiji district, Chef Tanaka brings authentic Edomae sushi craftsmanship to El Jadida.",
+    image:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
   },
   {
-    name: 'Chef Amina Benali',
-    role: 'Head of Hot Pot',
-    specialty: 'Traditional Nabe & Broths',
-    experience: '15+ years',
-    bio: 'Moroccan-Japanese chef specializing in creating unique fusion broths that blend the best of both culinary worlds.',
-    image: 'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Moroccan%20Japanese%20female%20chef%20portrait%20professional%20kitchen%20smiling%20warm%20expression%20high%20quality&image_size=portrait_4_3'
-  }
+    name: "Chef Amina Benali",
+    role: "Head of Hot Pot",
+    specialty: "Traditional Nabe & Broths",
+    experience: "15+ years",
+    bio: "Moroccan-Japanese chef specializing in creating unique fusion broths that blend the best of both culinary worlds.",
+    image:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80",
+  },
 ];
 
 const values = [
-  { icon: Target, title: 'Our Mission', text: 'To deliver the most authentic Japanese dining experience in Morocco, using the finest ingredients while honoring tradition and embracing local culture.' },
-  { icon: Eye, title: 'Our Vision', text: 'To be recognized as the premier Japanese restaurant destination in North Africa, known for culinary excellence, warm hospitality, and unforgettable ambiance.' },
-  { icon: Heart, title: 'Our Values', text: 'Quality, authenticity, hospitality, and sustainability guide everything we do. Every guest is family, every dish is crafted with love.' }
+  {
+    icon: Target,
+    title: "Our Mission",
+    text: "To deliver the most authentic Japanese dining experience in Morocco, using the finest ingredients while honoring tradition and embracing local culture.",
+  },
+  {
+    icon: Eye,
+    title: "Our Vision",
+    text: "To be recognized as the premier Japanese restaurant destination in North Africa, known for culinary excellence, warm hospitality, and unforgettable ambiance.",
+  },
+  {
+    icon: Heart,
+    title: "Our Values",
+    text: "Quality, authenticity, hospitality, and sustainability guide everything we do. Every guest is family, every dish is crafted with love.",
+  },
 ];
 
 const About = () => {
@@ -59,7 +73,7 @@ const About = () => {
       <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=elegant%20Japanese%20restaurant%20interior%20panoramic%20view%20wooden%20interior%20lanterns%20atmospheric&image_size=landscape_16_9"
+            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1600&q=80"
             alt="Restaurant ambiance"
             className="w-full h-full object-cover opacity-20"
           />
@@ -74,7 +88,9 @@ const About = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <span className="text-primary tracking-[0.4em] uppercase text-sm font-medium">About Samurai Mazagan</span>
+              <span className="text-primary tracking-[0.4em] uppercase text-sm font-medium">
+                About Samurai Mazagan
+              </span>
             </motion.div>
             <motion.h1
               variants={fadeInUp}
@@ -99,7 +115,7 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div variants={fadeInLeft} className="relative">
               <ImageReveal
-                src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Japanese%20chefs%20working%20in%20unison%20behind%20sushi%20bar%20professional%20kitchen%20teamwork%20high%20quality&image_size=portrait_4_3"
+                src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1200&q=80"
                 alt="Our chefs at work"
                 aspectRatio="aspect-[4/5]"
                 rounded="rounded-3xl"
@@ -122,7 +138,9 @@ const About = () => {
                     ))}
                   </div>
                   <div>
-                    <div className="font-semibold text-white">{restaurantData.chefs} Master Chefs</div>
+                    <div className="font-semibold text-white">
+                      {restaurantData.chefs} Master Chefs
+                    </div>
                     <div className="flex items-center gap-1 text-xs text-gray">
                       <Star className="w-3 h-3 text-accent fill-accent" />
                       From Tokyo & Beyond
@@ -159,7 +177,9 @@ const About = () => {
                       <value.icon className="w-7 h-7 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-playfair font-bold text-white mb-2">{value.title}</h3>
+                      <h3 className="text-xl font-playfair font-bold text-white mb-2">
+                        {value.title}
+                      </h3>
                       <p className="text-gray leading-relaxed">{value.text}</p>
                     </div>
                   </motion.div>
@@ -185,7 +205,11 @@ const About = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ delay: index * 0.15, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                  delay: index * 0.15,
+                  duration: 0.7,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
                 className="group relative rounded-3xl overflow-hidden card-hover"
               >
                 <div className="aspect-[4/3] overflow-hidden">
@@ -201,10 +225,14 @@ const About = () => {
                   <span className="inline-block px-3 py-1 rounded-full bg-primary/80 text-white text-xs font-semibold mb-3">
                     {chef.experience} Experience
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-playfair font-bold text-white mb-1">{chef.name}</h3>
+                  <h3 className="text-2xl md:text-3xl font-playfair font-bold text-white mb-1">
+                    {chef.name}
+                  </h3>
                   <p className="text-accent font-medium mb-2">{chef.role}</p>
                   <p className="text-white/70 text-sm mb-3">{chef.specialty}</p>
-                  <p className="text-gray text-sm leading-relaxed">{chef.bio}</p>
+                  <p className="text-gray text-sm leading-relaxed">
+                    {chef.bio}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -232,19 +260,25 @@ const About = () => {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
                   className={`relative flex items-start ${
-                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
                 >
-                  <div className={`flex-1 ${
-                    index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'
-                  } pl-16 md:pl-0`}>
+                  <div
+                    className={`flex-1 ${
+                      index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"
+                    } pl-16 md:pl-0`}
+                  >
                     <div className="p-6 rounded-2xl glass card-hover">
                       <span className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-sm font-bold mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         {item.year}
                       </span>
-                      <h3 className="text-xl font-playfair font-bold text-white mb-2">{item.title}</h3>
-                      <p className="text-gray leading-relaxed">{item.description}</p>
+                      <h3 className="text-xl font-playfair font-bold text-white mb-2">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray leading-relaxed">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
 
@@ -270,10 +304,18 @@ const About = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16">
             {[
-              { icon: Award, value: '85+', label: 'Menu Items' },
-              { icon: Star, value: restaurantData.rating.toString(), label: 'Rating' },
-              { icon: Calendar, value: '7/7', label: 'Days Open' },
-              { icon: CheckCircle, value: restaurantData.seatingCapacity + '+', label: 'Capacity' }
+              { icon: Award, value: "85+", label: "Menu Items" },
+              {
+                icon: Star,
+                value: restaurantData.rating.toString(),
+                label: "Rating",
+              },
+              { icon: Calendar, value: "7/7", label: "Days Open" },
+              {
+                icon: CheckCircle,
+                value: restaurantData.seatingCapacity + "+",
+                label: "Capacity",
+              },
             ].map((item, i) => (
               <motion.div
                 key={item.label}
@@ -284,7 +326,9 @@ const About = () => {
                 className="p-6 md:p-8 rounded-3xl glass text-center"
               >
                 <item.icon className="w-8 h-8 md:w-10 md:h-10 text-primary mx-auto mb-3 md:mb-4" />
-                <div className="text-3xl md:text-5xl font-playfair font-bold text-gradient mb-1 md:mb-2">{item.value}</div>
+                <div className="text-3xl md:text-5xl font-playfair font-bold text-gradient mb-1 md:mb-2">
+                  {item.value}
+                </div>
                 <div className="text-xs md:text-sm text-gray">{item.label}</div>
               </motion.div>
             ))}
@@ -314,7 +358,12 @@ const About = () => {
         />
         <div className="columns-1 sm:columns-2 lg:columns-4 gap-4">
           {galleryImages.slice(0, 8).map((image, index) => (
-            <GalleryCard key={image.id} image={image} index={index} masonry={true} />
+            <GalleryCard
+              key={image.id}
+              image={image}
+              index={index}
+              masonry={true}
+            />
           ))}
         </div>
       </div>

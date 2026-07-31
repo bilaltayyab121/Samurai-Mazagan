@@ -58,7 +58,7 @@ const Menu = () => {
       <section className="relative pt-24 pb-12 md:pt-32 md:pb-16 overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=top%20view%20premium%20Japanese%20food%20spread%20sushi%20sashimi%20ramen%20gyoza%20dark%20wood%20background&image_size=landscape_16_9"
+            src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1600&q=80"
             alt="Menu spread"
             className="w-full h-full object-cover opacity-20"
           />
@@ -73,20 +73,23 @@ const Menu = () => {
             className="text-center max-w-4xl mx-auto"
           >
             <motion.div variants={fadeInUp} className="mb-6">
-              <span className="text-primary tracking-[0.4em] uppercase text-sm font-medium">Our Culinary Art</span>
+              <span className="text-primary tracking-[0.4em] uppercase text-sm font-medium">
+                Our Culinary Art
+              </span>
             </motion.div>
             <motion.h1
               variants={fadeInUp}
               className="text-5xl md:text-7xl lg:text-8xl font-playfair font-bold mb-6 leading-[1.05]"
             >
-              <span className="text-white">Exquisite</span>{' '}
+              <span className="text-white">Exquisite</span>{" "}
               <span className="text-gradient">Menu</span>
             </motion.h1>
             <motion.p
               variants={fadeInUp}
               className="text-xl text-gray leading-relaxed max-w-2xl mx-auto"
             >
-              A curated selection of Japan's finest flavors, crafted with passion by our master chefs using the freshest ingredients.
+              A curated selection of Japan's finest flavors, crafted with
+              passion by our master chefs using the freshest ingredients.
             </motion.p>
           </motion.div>
         </div>
@@ -112,7 +115,7 @@ const Menu = () => {
                 />
                 {searchQuery && (
                   <button
-                    onClick={() => setSearchQuery('')}
+                    onClick={() => setSearchQuery("")}
                     className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full hover:bg-white/10 flex items-center justify-center text-gray hover:text-white transition-colors"
                   >
                     <X className="w-4 h-4" />
@@ -131,7 +134,7 @@ const Menu = () => {
 
             <motion.div
               variants={fadeInUp}
-              className={`mt-4 md:mt-5 ${showFilters ? 'block' : 'hidden md:block'}`}
+              className={`mt-4 md:mt-5 ${showFilters ? "block" : "hidden md:block"}`}
             >
               <div className="flex flex-wrap gap-2 md:gap-3 justify-center">
                 {menuCategories.map((cat, index) => {
@@ -144,12 +147,14 @@ const Menu = () => {
                       onClick={() => setActiveCategory(cat.id)}
                       className={`flex items-center gap-2 px-4 md:px-5 py-2.5 md:py-3 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
                         activeCategory === cat.id
-                          ? 'bg-primary text-white shadow-lg shadow-primary/30'
-                          : 'glass text-white/70 hover:text-white hover:bg-white/10'
+                          ? "bg-primary text-white shadow-lg shadow-primary/30"
+                          : "glass text-white/70 hover:text-white hover:bg-white/10"
                       }`}
                       style={{ transitionDelay: `${index * 20}ms` }}
                     >
-                      {IconComp && <IconComp className="w-4 h-4 md:w-5 md:h-5" />}
+                      {IconComp && (
+                        <IconComp className="w-4 h-4 md:w-5 md:h-5" />
+                      )}
                       <span className="whitespace-nowrap">{cat.name}</span>
                     </motion.button>
                   );
@@ -182,15 +187,18 @@ const Menu = () => {
                 <div className="w-24 h-24 mx-auto mb-6 rounded-full glass-strong flex items-center justify-center">
                   <Search className="w-12 h-12 text-gray" />
                 </div>
-                <h3 className="text-2xl font-playfair font-bold text-white mb-3">No Dishes Found</h3>
+                <h3 className="text-2xl font-playfair font-bold text-white mb-3">
+                  No Dishes Found
+                </h3>
                 <p className="text-gray mb-8 max-w-md mx-auto">
-                  We couldn't find any dishes matching your criteria. Try adjusting your search or selecting a different category.
+                  We couldn't find any dishes matching your criteria. Try
+                  adjusting your search or selecting a different category.
                 </p>
                 <Button
                   variant="primary"
                   onClick={() => {
-                    setSearchQuery('');
-                    setActiveCategory('all');
+                    setSearchQuery("");
+                    setActiveCategory("all");
                   }}
                 >
                   Clear Filters
@@ -208,11 +216,13 @@ const Menu = () => {
             <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5" />
             <div className="relative z-10">
               <h3 className="text-3xl md:text-4xl font-playfair font-bold text-white mb-4">
-                Can't Find What You're <span className="text-gradient">Craving?</span>
+                Can't Find What You're{" "}
+                <span className="text-gradient">Craving?</span>
               </h3>
               <p className="text-gray max-w-2xl mx-auto mb-8">
-                Our chefs love custom requests! Contact us for personalized menu recommendations,
-                dietary accommodations, or special off-menu creations.
+                Our chefs love custom requests! Contact us for personalized menu
+                recommendations, dietary accommodations, or special off-menu
+                creations.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button variant="primary" size="lg" to="/reservation">

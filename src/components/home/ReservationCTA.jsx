@@ -17,7 +17,7 @@ const ReservationCTA = () => {
     >
       <div className="absolute inset-0">
         <img
-          src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=luxury%20Japanese%20restaurant%20private%20dining%20room%20candle%20lit%20romantic%20atmosphere%20sushi%20platter&image_size=landscape_16_9"
+          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80"
           alt="Restaurant ambiance"
           className="w-full h-full object-cover"
           loading="lazy"
@@ -37,7 +37,8 @@ const ReservationCTA = () => {
           >
             <Star className="w-4 h-4 text-accent fill-accent" />
             <span className="text-white/80 text-sm font-medium">
-              {restaurantData.rating} / 5 • {restaurantData.reviews}+ Happy Guests
+              {restaurantData.rating} / 5 • {restaurantData.reviews}+ Happy
+              Guests
             </span>
           </motion.div>
 
@@ -54,9 +55,9 @@ const ReservationCTA = () => {
             variants={fadeInUp}
             className="text-xl text-white/70 mb-10 max-w-2xl leading-relaxed"
           >
-            Reserve your table now and let us take you on a culinary journey through Japan.
-            Whether it's a romantic dinner, family celebration, or business meeting,
-            we promise an experience to remember.
+            Reserve your table now and let us take you on a culinary journey
+            through Japan. Whether it's a romantic dinner, family celebration,
+            or business meeting, we promise an experience to remember.
           </motion.p>
 
           <motion.div
@@ -64,13 +65,22 @@ const ReservationCTA = () => {
             className="grid grid-cols-3 gap-4 md:gap-6 mb-12 max-w-xl"
           >
             {[
-              { icon: Calendar, value: 'Easy', label: '24/7 Booking' },
-              { icon: Users, value: restaurantData.seatingCapacity + '+', label: 'Seats Available' },
-              { icon: UtensilsCrossed, value: '85+', label: 'Menu Items' }
+              { icon: Calendar, value: "Easy", label: "24/7 Booking" },
+              {
+                icon: Users,
+                value: restaurantData.seatingCapacity + "+",
+                label: "Seats Available",
+              },
+              { icon: UtensilsCrossed, value: "85+", label: "Menu Items" },
             ].map((item, i) => (
-              <div key={i} className="p-4 md:p-6 rounded-2xl glass-strong text-center">
+              <div
+                key={i}
+                className="p-4 md:p-6 rounded-2xl glass-strong text-center"
+              >
                 <item.icon className="w-6 h-6 md:w-8 md:h-8 text-primary mx-auto mb-2" />
-                <div className="text-2xl md:text-3xl font-playfair font-bold text-white mb-1">{item.value}</div>
+                <div className="text-2xl md:text-3xl font-playfair font-bold text-white mb-1">
+                  {item.value}
+                </div>
                 <div className="text-xs md:text-sm text-gray">{item.label}</div>
               </div>
             ))}
@@ -83,7 +93,7 @@ const ReservationCTA = () => {
             <motion.button
               whileHover={{ scale: 1.05, x: 4 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => navigate('/reservation')}
+              onClick={() => navigate("/reservation")}
               className="group relative px-10 py-5 rounded-full bg-primary text-white text-lg font-semibold shadow-2xl shadow-primary/30 hover:shadow-accent/30 overflow-hidden flex items-center justify-center gap-3"
             >
               <span className="absolute inset-0 bg-accent translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" />

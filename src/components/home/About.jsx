@@ -29,10 +29,13 @@ const About = () => {
 
       <div className="container-custom relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <motion.div variants={fadeInLeft} className="relative order-2 lg:order-1">
+          <motion.div
+            variants={fadeInLeft}
+            className="relative order-2 lg:order-1"
+          >
             <div className="relative">
               <ImageReveal
-                src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=elegant%20Japanese%20restaurant%20interior%20sushi%20bar%20chef%20preparing%20food%20warm%20lighting%20wooden%20elements&image_size=portrait_4_3"
+                src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80"
                 alt="Samurai Mazagan Interior"
                 aspectRatio="aspect-[4/5]"
                 rounded="rounded-3xl"
@@ -44,7 +47,7 @@ const About = () => {
                 className="absolute -bottom-8 -right-4 md:-right-8 w-40 md:w-56 aspect-square rounded-2xl overflow-hidden border-4 border-background shadow-2xl"
               >
                 <img
-                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Japanese%20chef%20crafting%20sushi%20nigiri%20professional%20hands%20detail%20shot&image_size=square_hd"
+                  src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=900&q=80"
                   alt="Chef preparing sushi"
                   loading="lazy"
                   className="w-full h-full object-cover"
@@ -55,18 +58,28 @@ const About = () => {
                 variants={fadeInRight}
                 className="absolute -top-6 -left-4 md:-left-8 p-6 rounded-2xl glass-strong shadow-2xl"
               >
-                <div className="text-5xl md:text-6xl font-playfair font-bold text-gradient leading-none">3+</div>
-                <div className="text-gray text-sm mt-1">Years of Excellence</div>
+                <div className="text-5xl md:text-6xl font-playfair font-bold text-gradient leading-none">
+                  3+
+                </div>
+                <div className="text-gray text-sm mt-1">
+                  Years of Excellence
+                </div>
               </motion.div>
 
               <motion.div
                 variants={fadeInUp}
                 className="absolute top-1/3 -right-2 md:right-4 w-24 h-24 opacity-70 hidden md:block"
                 animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               >
-                <svg viewBox="0 0 100 100" className="w-full h-full text-primary fill-current">
-                  <path d="M50 0 C60 20 80 40 100 50 C80 60 60 80 50 100 C40 80 20 60 0 50 C20 40 40 20 50 0" fillOpacity="0.2" />
+                <svg
+                  viewBox="0 0 100 100"
+                  className="w-full h-full text-primary fill-current"
+                >
+                  <path
+                    d="M50 0 C60 20 80 40 100 50 C80 60 60 80 50 100 C40 80 20 60 0 50 C20 40 40 20 50 0"
+                    fillOpacity="0.2"
+                  />
                 </svg>
               </motion.div>
             </div>
@@ -84,14 +97,26 @@ const About = () => {
 
             <motion.div variants={fadeInRight} className="space-y-6 mb-8">
               <p className="text-white/80 text-lg leading-relaxed">
-                Nestled on Av. Bir Anzarane in El Jadida, <span className="text-primary font-semibold">Samurai Mazagan</span> is a celebration of Japanese culinary artistry. Our master chefs, trained in the traditions of Tokyo and Osaka, bring decades of expertise to every dish they create.
+                Nestled on Av. Bir Anzarane in El Jadida,{" "}
+                <span className="text-primary font-semibold">
+                  Samurai Mazagan
+                </span>{" "}
+                is a celebration of Japanese culinary artistry. Our master
+                chefs, trained in the traditions of Tokyo and Osaka, bring
+                decades of expertise to every dish they create.
               </p>
               <p className="text-gray leading-relaxed">
-                From our signature simmering hot pots to the delicate precision of our premium sushi, every element at Samurai Mazagan is crafted to deliver an unforgettable experience. Our unique rooftop setting and live weekend music make every visit special.
+                From our signature simmering hot pots to the delicate precision
+                of our premium sushi, every element at Samurai Mazagan is
+                crafted to deliver an unforgettable experience. Our unique
+                rooftop setting and live weekend music make every visit special.
               </p>
             </motion.div>
 
-            <motion.div variants={fadeInUp} className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
+            <motion.div
+              variants={fadeInUp}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10"
+            >
               {highlights.map((item, i) => (
                 <motion.div
                   key={i}
@@ -110,18 +135,10 @@ const About = () => {
               variants={fadeInUp}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Button
-                variant="primary"
-                to="/about"
-                size="lg"
-              >
+              <Button variant="primary" to="/about" size="lg">
                 Discover More
               </Button>
-              <Button
-                variant="outline"
-                to="/menu"
-                size="lg"
-              >
+              <Button variant="outline" to="/menu" size="lg">
                 Explore Menu
               </Button>
             </motion.div>
