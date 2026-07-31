@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createHashRouter, Navigate } from "react-router-dom";
 import Layout from '../layout/Layout';
 
 const Home = lazy(() => import('../pages/Home'));
@@ -19,9 +19,9 @@ const SuspenseFallback = () => (
   </div>
 );
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
-    path: '/',
+    path: "/",
     element: (
       <Suspense fallback={<SuspenseFallback />}>
         <Layout />
@@ -29,15 +29,15 @@ export const router = createBrowserRouter([
     ),
     children: [
       { index: true, element: <Home /> },
-      { path: 'about', element: <About /> },
-      { path: 'menu', element: <Menu /> },
-      { path: 'gallery', element: <Gallery /> },
-      { path: 'reservation', element: <Reservation /> },
-      { path: 'contact', element: <Contact /> },
-      { path: '404', element: <NotFound /> },
-      { path: '*', element: <Navigate to="/404" replace /> }
-    ]
-  }
+      { path: "about", element: <About /> },
+      { path: "menu", element: <Menu /> },
+      { path: "gallery", element: <Gallery /> },
+      { path: "reservation", element: <Reservation /> },
+      { path: "contact", element: <Contact /> },
+      { path: "404", element: <NotFound /> },
+      { path: "*", element: <Navigate to="/404" replace /> },
+    ],
+  },
 ]);
 
 export default router;

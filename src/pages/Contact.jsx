@@ -1,50 +1,45 @@
-import { useState, useRef } from 'react';
-import SEO from '../utils/SEO';
-import Breadcrumb from '../components/common/Breadcrumb';
-import SectionHeading from '../components/common/SectionHeading';
-import SectionWrapper from '../components/common/SectionWrapper';
-import Newsletter from '../components/common/Newsletter';
-import Button from '../components/common/Button';
-import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight } from '../utils/motion';
-import { motion } from 'framer-motion';
-import { useForm } from 'react-hook-form';
+import { useState } from "react";
+import SEO from "../utils/SEO";
+import Breadcrumb from "../components/common/Breadcrumb";
+import SectionHeading from "../components/common/SectionHeading";
+import SectionWrapper from "../components/common/SectionWrapper";
+import Newsletter from "../components/common/Newsletter";
+import Button from "../components/common/Button";
 import {
-  MapPin, Phone, Mail, Clock,
-  Instagram, Facebook, MessageCircle,
-  Send, User, AtSign, Headphones, FileText,
-  CheckCircle2
-} from 'lucide-react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
-import { submitContactForm } from '../services/api';
-import { restaurantData, actions } from '../data/restaurant';
-
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
-});
-
-const customIcon = new L.Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
+  staggerContainer,
+  fadeInUp,
+  fadeInLeft,
+  fadeInRight,
+} from "../utils/motion";
+import { motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Instagram,
+  Facebook,
+  MessageCircle,
+  Send,
+  User,
+  AtSign,
+  Headphones,
+  FileText,
+  CheckCircle2,
+} from "lucide-react";
+import { submitContactForm } from "../services/api";
+import { restaurantData, actions } from "../data/restaurant";
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const mapRef = useRef(null);
 
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors }
+    formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
@@ -64,56 +59,56 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      title: 'Visit Us',
+      title: "Visit Us",
       primary: restaurantData.address.full,
-      secondary: 'Av. Bir Anzarane, El Jadida',
-      color: 'text-primary',
-      bg: 'bg-primary/10',
-      action: `https://www.google.com/maps/search/?api=1&query=${restaurantData.address.coordinates.lat},${restaurantData.address.coordinates.lng}`
+      secondary: "Av. Bir Anzarane, El Jadida",
+      color: "text-primary",
+      bg: "bg-primary/10",
+      action: `https://www.google.com/maps/search/?api=1&query=${restaurantData.address.coordinates.lat},${restaurantData.address.coordinates.lng}`,
     },
     {
       icon: Phone,
-      title: 'Call Us',
+      title: "Call Us",
       primary: restaurantData.contact.phone,
       secondary: `Landline: ${restaurantData.contact.landline}`,
-      color: 'text-accent',
-      bg: 'bg-accent/10',
-      action: actions.phone
+      color: "text-accent",
+      bg: "bg-accent/10",
+      action: actions.phone,
     },
     {
       icon: MessageCircle,
-      title: 'WhatsApp',
+      title: "WhatsApp",
       primary: restaurantData.contact.whatsapp,
-      secondary: 'Quick chat support',
-      color: 'text-green-400',
-      bg: 'bg-green-400/10',
-      action: actions.whatsapp
+      secondary: "Quick chat support",
+      color: "text-green-400",
+      bg: "bg-green-400/10",
+      action: actions.whatsapp,
     },
     {
       icon: Mail,
-      title: 'Email Us',
+      title: "Email Us",
       primary: restaurantData.contact.email,
-      secondary: 'Response within 24 hours',
-      color: 'text-blue-400',
-      bg: 'bg-blue-400/10',
-      action: actions.email
+      secondary: "Response within 24 hours",
+      color: "text-blue-400",
+      bg: "bg-blue-400/10",
+      action: actions.email,
     },
     {
       icon: Clock,
-      title: 'Working Hours',
-      primary: 'Every Day: 12 PM - 12 AM',
-      secondary: 'Rooftop: 5 PM onwards',
-      color: 'text-purple-400',
-      bg: 'bg-purple-400/10'
+      title: "Working Hours",
+      primary: "Every Day: 12 PM - 12 AM",
+      secondary: "Rooftop: 5 PM onwards",
+      color: "text-purple-400",
+      bg: "bg-purple-400/10",
     },
     {
       icon: Headphones,
-      title: 'Support',
-      primary: '7 days a week',
-      secondary: 'We are here to help you',
-      color: 'text-pink-400',
-      bg: 'bg-pink-400/10'
-    }
+      title: "Support",
+      primary: "7 days a week",
+      secondary: "We are here to help you",
+      color: "text-pink-400",
+      bg: "bg-pink-400/10",
+    },
   ];
 
   return (
@@ -210,43 +205,13 @@ const Contact = () => {
               className="relative order-2 lg:order-1"
             >
               <div className="h-[500px] md:h-[600px] rounded-3xl overflow-hidden shadow-2xl glass-strong border border-white/10 relative z-10">
-                <MapContainer
-                  ref={mapRef}
-                  center={[
-                    restaurantData.address.coordinates.lat,
-                    restaurantData.address.coordinates.lng,
-                  ]}
-                  zoom={16}
-                  scrollWheelZoom={false}
-                  style={{
-                    height: "100%",
-                    width: "100%",
-                    borderRadius: "inherit",
-                  }}
-                >
-                  <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  <Marker
-                    position={[
-                      restaurantData.address.coordinates.lat,
-                      restaurantData.address.coordinates.lng,
-                    ]}
-                    icon={customIcon}
-                  >
-                    <Popup>
-                      <div className="text-center p-2">
-                        <strong className="text-primary block">
-                          {restaurantData.name}
-                        </strong>
-                        <span className="text-xs text-gray-600 block">
-                          {restaurantData.address.full}
-                        </span>
-                      </div>
-                    </Popup>
-                  </Marker>
-                </MapContainer>
+                <iframe
+                  title="Samurai Mazagan location map"
+                  src={`https://www.google.com/maps?q=${restaurantData.address.coordinates.lat},${restaurantData.address.coordinates.lng}&z=16&output=embed`}
+                  className="w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
 
               <div className="absolute -bottom-4 -right-4 p-5 rounded-2xl glass-strong shadow-2xl hidden md:block">
