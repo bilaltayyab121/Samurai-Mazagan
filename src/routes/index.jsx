@@ -1,14 +1,14 @@
-import { lazy, Suspense } from 'react';
-import { createHashRouter, Navigate } from "react-router-dom";
-import Layout from '../layout/Layout';
+import { lazy, Suspense } from "react";
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import Layout from "../layout/Layout";
 
-const Home = lazy(() => import('../pages/Home'));
-const About = lazy(() => import('../pages/About'));
-const Menu = lazy(() => import('../pages/Menu'));
-const Gallery = lazy(() => import('../pages/Gallery'));
-const Reservation = lazy(() => import('../pages/Reservation'));
-const Contact = lazy(() => import('../pages/Contact'));
-const NotFound = lazy(() => import('../pages/NotFound'));
+const Home = lazy(() => import("../pages/Home"));
+const About = lazy(() => import("../pages/About"));
+const Menu = lazy(() => import("../pages/Menu"));
+const Gallery = lazy(() => import("../pages/Gallery"));
+const Reservation = lazy(() => import("../pages/Reservation"));
+const Contact = lazy(() => import("../pages/Contact"));
+const NotFound = lazy(() => import("../pages/NotFound"));
 
 const SuspenseFallback = () => (
   <div className="min-h-screen flex items-center justify-center bg-background">
@@ -19,7 +19,7 @@ const SuspenseFallback = () => (
   </div>
 );
 
-export const router = createHashRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: (
