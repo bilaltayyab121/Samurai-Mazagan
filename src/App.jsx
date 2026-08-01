@@ -44,28 +44,33 @@ function App() {
           position="top-right"
           toastOptions={{
             style: {
-              background: 'rgba(40, 40, 40, 0.95)',
-              color: '#ffffff',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: '16px',
-              padding: '16px 20px',
+              background: "rgba(40, 40, 40, 0.95)",
+              color: "#ffffff",
+              backdropFilter: "blur(10px)",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              borderRadius: "16px",
+              padding: "16px 20px",
             },
             success: {
               iconTheme: {
-                primary: '#f4d03f',
-                secondary: '#0d0d0d'
-              }
+                primary: "#f4d03f",
+                secondary: "#0d0d0d",
+              },
             },
             error: {
               iconTheme: {
-                primary: '#c71c2d',
-                secondary: '#0d0d0d'
-              }
-            }
+                primary: "#c71c2d",
+                secondary: "#0d0d0d",
+              },
+            },
           }}
         />
-        <RouterProvider router={router} />
+        <RouterProvider
+          router={router}
+          future={{
+            v7_startTransition: true,
+          }}
+        />
       </AppProvider>
     </HelmetProvider>
   );

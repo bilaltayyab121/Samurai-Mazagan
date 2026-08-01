@@ -4,8 +4,7 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [activeSection, setActiveSection] = useState('home');
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [lightboxImage, setLightboxImage] = useState(null);
@@ -39,17 +38,6 @@ export const AppProvider = ({ children }) => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [mobileMenuOpen]);
-
   const openLightbox = useCallback((image) => {
     setLightboxImage(image);
     document.body.style.overflow = 'hidden';
@@ -60,24 +48,17 @@ export const AppProvider = ({ children }) => {
     document.body.style.overflow = '';
   }, []);
 
-  const toggleMobileMenu = useCallback(() => {
-    setMobileMenuOpen(prev => !prev);
-  }, []);
-
   const value = {
     isLoading,
     setIsLoading,
     activeSection,
     setActiveSection,
-    mobileMenuOpen,
-    setMobileMenuOpen,
-    toggleMobileMenu,
     scrollProgress,
     mousePosition,
     lightboxImage,
     openLightbox,
     closeLightbox,
-    isScrolled
+    isScrolled,
   };
 
   return (

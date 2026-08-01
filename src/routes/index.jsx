@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { createHashRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import Layout from '../layout/Layout';
 
 const Home = lazy(() => import('../pages/Home'));
@@ -19,25 +19,32 @@ const SuspenseFallback = () => (
   </div>
 );
 
-export const router = createHashRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: (
+        <Suspense fallback={<SuspenseFallback />}>
+          <Layout />
+        </Suspense>
+      ),
+      children: [
+        { index: true, element: <Home /> },
+        { path: "about", element: <About /> },
+        { path: "menu", element: <Menu /> },
+        { path: "gallery", element: <Gallery /> },
+        { path: "reservation", element: <Reservation /> },
+        { path: "contact", element: <Contact /> },
+        { path: "404", element: <NotFound /> },
+        { path: "*", element: <Navigate to="/404" replace /> },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: (
-      <Suspense fallback={<SuspenseFallback />}>
-        <Layout />
-      </Suspense>
-    ),
-    children: [
-      { index: true, element: <Home /> },
-      { path: "about", element: <About /> },
-      { path: "menu", element: <Menu /> },
-      { path: "gallery", element: <Gallery /> },
-      { path: "reservation", element: <Reservation /> },
-      { path: "contact", element: <Contact /> },
-      { path: "404", element: <NotFound /> },
-      { path: "*", element: <Navigate to="/404" replace /> },
-    ],
+    future: {
+      v7_startTransition: true,
+    },
   },
-]);
+);
 
 export default router;
