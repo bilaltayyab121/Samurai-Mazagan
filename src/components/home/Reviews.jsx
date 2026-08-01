@@ -41,13 +41,13 @@ const Reviews = () => {
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
-              pauseOnMouseEnter: true
+              pauseOnMouseEnter: true,
             }}
             breakpoints={{
               640: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 2 },
-              1280: { slidesPerView: 3 }
+              1280: { slidesPerView: 3 },
             }}
             loop
             className="!pb-16"
@@ -59,7 +59,7 @@ const Reviews = () => {
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-4 h-4 ${i < review.rating ? 'text-accent fill-accent' : 'text-white/20'}`}
+                        className={`w-4 h-4 ${i < review.rating ? "text-accent fill-accent" : "text-white/20"}`}
                       />
                     ))}
                   </div>
@@ -67,6 +67,17 @@ const Reviews = () => {
                   <p className="text-white/80 text-base leading-relaxed mb-6 flex-grow italic">
                     &ldquo;{review.review}&rdquo;
                   </p>
+
+                  {review.sourceUrl && (
+                    <a
+                      href={review.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mb-4 inline-flex text-xs text-primary hover:text-accent transition-colors"
+                    >
+                      View on Google Maps
+                    </a>
+                  )}
 
                   <div className="flex items-center gap-4 pt-4 border-t border-white/10">
                     <img
@@ -76,8 +87,12 @@ const Reviews = () => {
                       loading="lazy"
                     />
                     <div>
-                      <h4 className="font-semibold text-white">{review.name}</h4>
-                      <span className="text-primary text-sm">{review.role}</span>
+                      <h4 className="font-semibold text-white">
+                        {review.name}
+                      </h4>
+                      <span className="text-primary text-sm">
+                        {review.role}
+                      </span>
                     </div>
                   </div>
                 </div>
