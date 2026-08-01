@@ -19,7 +19,7 @@ const GalleryCard = ({ image, index = 0, masonry = false }) => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       transition={{ delay: index * 0.05 }}
-      className={masonry ? 'mb-4 break-inside-avoid' : ''}
+      className={masonry ? "mb-4 break-inside-avoid" : ""}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -27,11 +27,12 @@ const GalleryCard = ({ image, index = 0, masonry = false }) => {
         className="relative group rounded-2xl overflow-hidden cursor-pointer card-hover"
         onClick={handleClick}
       >
-        <div className={masonry ? '' : 'aspect-square'}>
+        <div className={masonry ? "" : "aspect-square"}>
           <motion.img
             src={image.image}
             alt={image.title}
             loading="lazy"
+            style={{ objectPosition: image.objectPosition || "center" }}
             className="w-full h-full object-cover"
             animate={{ scale: isHovered ? 1.08 : 1 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -68,7 +69,9 @@ const GalleryCard = ({ image, index = 0, masonry = false }) => {
               <ZoomIn className="w-5 h-5 text-white" />
             </motion.button>
           </div>
-          <h4 className="text-white font-playfair text-xl font-bold mb-1">{image.title}</h4>
+          <h4 className="text-white font-playfair text-xl font-bold mb-1">
+            {image.title}
+          </h4>
           {image.description && (
             <p className="text-gray text-sm">{image.description}</p>
           )}

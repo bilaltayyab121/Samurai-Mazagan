@@ -40,11 +40,15 @@ const Footer = () => {
               <div className="relative w-14 h-14">
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary to-accent group-hover:rotate-180 transition-transform duration-700" />
                 <div className="absolute inset-[2px] rounded-[10px] bg-background flex items-center justify-center">
-                  <span className="font-playfair text-2xl font-bold text-gradient">侍</span>
+                  <span className="font-playfair text-2xl font-bold text-gradient">
+                    侍
+                  </span>
                 </div>
               </div>
               <div>
-                <h3 className="font-playfair text-2xl font-bold text-white">Samurai Mazagan</h3>
+                <h3 className="font-playfair text-2xl font-bold text-white">
+                  Samurai Mazagan
+                </h3>
                 <p className="text-sm text-gray">Authentic Japanese Cuisine</p>
               </div>
             </Link>
@@ -55,9 +59,21 @@ const Footer = () => {
 
             <div className="flex gap-3">
               {[
-                { icon: Instagram, href: restaurantData.social.instagram, color: 'hover:from-pink-500 hover:to-purple-600' },
-                { icon: Facebook, href: restaurantData.social.facebook, color: 'hover:bg-blue-600' },
-                { icon: MessageCircle, href: restaurantData.social.whatsapp, color: 'hover:bg-green-500' }
+                {
+                  icon: Instagram,
+                  href: restaurantData.social.instagram,
+                  color: "hover:from-pink-500 hover:to-purple-600",
+                },
+                {
+                  icon: Facebook,
+                  href: restaurantData.social.facebook,
+                  color: "hover:bg-blue-600",
+                },
+                {
+                  icon: MessageCircle,
+                  href: restaurantData.social.whatsapp,
+                  color: "hover:bg-green-500",
+                },
               ].map((social, i) => (
                 <a
                   key={i}
@@ -105,15 +121,21 @@ const Footer = () => {
               <div className="ml-7 p-4 rounded-xl glass">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white/80">Mon - Thu</span>
-                  <span className="text-accent font-semibold">12 PM - 12 AM</span>
+                  <span className="text-accent font-semibold">
+                    12 PM - 12 AM
+                  </span>
                 </div>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-white/80">Fri - Sat</span>
-                  <span className="text-primary font-semibold">12 PM - 12 AM</span>
+                  <span className="text-primary font-semibold">
+                    12 PM - 12 AM
+                  </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-white/80">Sunday</span>
-                  <span className="text-accent font-semibold">12 PM - 12 AM</span>
+                  <span className="text-accent font-semibold">
+                    12 PM - 12 AM
+                  </span>
                 </div>
               </div>
               <p className="text-xs text-gray/70 italic ml-7">
@@ -132,18 +154,26 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-1" />
                 <div>
                   <p className="text-white/80 font-medium">Address</p>
-                  <p className="text-gray text-sm">{restaurantData.address.full}</p>
+                  <p className="text-gray text-sm">
+                    {restaurantData.address.full}
+                  </p>
                 </div>
               </li>
               <li className="flex gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0 mt-1" />
                 <div>
                   <p className="text-white/80 font-medium">Phone</p>
-                  <a href={actions.phone} className="text-gray text-sm hover:text-primary transition-colors">
+                  <a
+                    href={actions.phone}
+                    className="text-gray text-sm hover:text-primary transition-colors"
+                  >
                     {restaurantData.contact.phone}
                   </a>
                   <br />
-                  <a href={`tel:${restaurantData.contact.landline}`} className="text-gray text-sm hover:text-primary transition-colors">
+                  <a
+                    href={`tel:${restaurantData.contact.landline}`}
+                    className="text-gray text-sm hover:text-primary transition-colors"
+                  >
                     {restaurantData.contact.landline}
                   </a>
                 </div>
@@ -152,7 +182,10 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-primary shrink-0 mt-1" />
                 <div>
                   <p className="text-white/80 font-medium">Email</p>
-                  <a href={actions.email} className="text-gray text-sm hover:text-primary transition-colors break-all">
+                  <a
+                    href={actions.email}
+                    className="text-gray text-sm hover:text-primary transition-colors break-all"
+                  >
                     {restaurantData.contact.email}
                   </a>
                 </div>
@@ -160,7 +193,7 @@ const Footer = () => {
             </ul>
 
             <button
-              onClick={() => navigate('/reservation')}
+              onClick={() => navigate("/reservation")}
               className="mt-6 w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-primary text-white font-semibold hover:bg-accent hover:text-background transition-all duration-300 group"
             >
               <UtensilsCrossed className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
@@ -172,15 +205,10 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-gray text-sm text-center md:text-left">
-              © {currentYear} <span className="text-white font-semibold">Samurai Mazagan</span>. All rights reserved.
+              © {currentYear}{" "}
+              <span className="text-white font-semibold">Samurai Mazagan</span>.
+              All rights reserved.
             </p>
-            <div className="flex items-center gap-6 text-sm text-gray">
-              <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <span className="text-white/20">|</span>
-              <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-              <span className="text-white/20">|</span>
-              <a href="#" className="hover:text-primary transition-colors">Sitemap</a>
-            </div>
           </div>
         </div>
       </div>
