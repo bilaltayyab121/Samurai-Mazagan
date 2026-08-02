@@ -182,9 +182,9 @@ const Hero = () => {
 
         <motion.div
           variants={itemVariants}
-          className="flex items-center justify-center gap-3 mb-16 text-gray"
+          className="inline-flex items-center justify-center gap-1.5 md:gap-3 mb-16 text-gray text-sm md:text-base mx-auto px-3"
         >
-          <MapPin className="w-5 h-5 text-primary" />
+          <MapPin className="w-5 h-5 text-primary shrink-0" />
           <span>{restaurantData.address.full}</span>
         </motion.div>
 
