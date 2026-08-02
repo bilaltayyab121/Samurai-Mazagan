@@ -3,36 +3,36 @@ import { Leaf, ChefHat, Award, Users, Zap, Crown } from 'lucide-react';
 export const statistics = [
   {
     id: 1,
-    label: 'Happy Customers',
-    value: 15000,
-    suffix: '+',
+    label: "Happy Customers",
+    value: 453,
+    suffix: "+",
     icon: Users,
-    description: 'Satisfied diners since opening'
+    description: "Satisfied diners since opening",
   },
   {
     id: 2,
-    label: 'Signature Dishes',
+    label: "Signature Dishes",
     value: 85,
-    suffix: '+',
+    suffix: "+",
     icon: Award,
-    description: 'Crafted by our master chefs'
+    description: "Crafted by our master chefs",
   },
   {
     id: 3,
-    label: 'Expert Chefs',
+    label: "Expert Chefs",
     value: 4,
-    suffix: '',
+    suffix: "",
     icon: ChefHat,
-    description: 'From Tokyo and beyond'
+    description: "From Tokyo and beyond",
   },
   {
     id: 4,
-    label: 'Years of Service',
+    label: "Years of Service",
     value: 3,
-    suffix: '',
+    suffix: "",
     icon: Crown,
-    description: 'Excellence in every bite'
-  }
+    description: "Excellence in every bite",
+  },
 ];
 
 export const whyChooseUs = [
