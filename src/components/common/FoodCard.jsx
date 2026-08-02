@@ -3,10 +3,13 @@ import { Star } from 'lucide-react';
 import { useState } from 'react';
 import { cn, formatCurrency } from '../../utils/helpers';
 import { fadeInUp } from '../../utils/motion';
-import { Flame, Leaf } from 'lucide-react';
+import { Flame, Leaf, Plus, Minus, ShoppingBag } from "lucide-react";
+import { useApp } from "../../context/AppContext";
 
 const FoodCard = ({ item, index = 0 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { addToCart, decreaseCartItem, getItemQuantity } = useApp();
+  const quantity = getItemQuantity(item.id);
 
   return (
     <motion.div
@@ -69,11 +72,50 @@ const FoodCard = ({ item, index = 0 }) => {
         <p className="text-gray text-sm leading-relaxed line-clamp-2">
           {item.description}
         </p>
+
+        <div className="mt-5">
+          {quantity > 0 ? (
+            <div className="flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+              <button
+                type="button"
+                onClick={() => decreaseCartItem(item.id)}
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white"
+                aria-label={`Decrease ${item.name}`}
+              >
+                <Minus className="w-4 h-4" />
+              </button>
+              <span className="text-white font-semibold">
+                {quantity} in cart
+              </span>
+              <button
+                type="button"
+                onClick={() => addToCart(item)}
+                className="w-9 h-9 rounded-full bg-primary hover:bg-primary/90 flex items-center justify-center text-white"
+                aria-label={`Increase ${item.name}`}
+              >
+                <Plus className="w-4 h-4" />
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => addToCart(item)}
+              className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary/90 text-white font-medium py-2.5 transition-colors"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              Add to Cart
+            </button>
+          )}
+        </div>
       </div>
 
       <motion.div
         className="absolute inset-0 border-2 border-primary/0 rounded-2xl pointer-events-none"
-        animate={{ borderColor: isHovered ? 'rgba(199, 28, 45, 0.5)' : 'rgba(199, 28, 45, 0)' }}
+        animate={{
+          borderColor: isHovered
+            ? "rgba(199, 28, 45, 0.5)"
+            : "rgba(199, 28, 45, 0)",
+        }}
         transition={{ duration: 0.3 }}
       />
     </motion.div>

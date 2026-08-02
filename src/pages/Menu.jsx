@@ -8,8 +8,22 @@ import FoodCard from '../components/common/FoodCard';
 import Button from '../components/common/Button';
 import { staggerContainer, fadeInUp } from '../utils/motion';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Filter, Flame, Fish, Salad, Drumstick, Cake, Wine, UtensilsCrossed, X } from 'lucide-react';
-import { menuItems, menuCategories } from '../data/menu';
+import {
+  Search,
+  Filter,
+  Flame,
+  Fish,
+  Salad,
+  Drumstick,
+  Cake,
+  Wine,
+  UtensilsCrossed,
+  X,
+  ShoppingCart,
+} from "lucide-react";
+import { menuItems, menuCategories } from "../data/menu";
+import { useApp } from "../context/AppContext";
+import { formatCurrency } from "../utils/helpers";
 
 const iconMap = {
   UtensilsCrossed,
@@ -18,27 +32,28 @@ const iconMap = {
   Salad,
   Drumstick,
   Cake,
-  Wine
+  Wine,
 };
 
 const Menu = () => {
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
+  const { cartCount, cartTotal, getWhatsAppOrderLink } = useApp();
 
   const filteredItems = useMemo(() => {
     let items = menuItems;
 
-    if (activeCategory !== 'all') {
-      items = items.filter(item => item.category === activeCategory);
+    if (activeCategory !== "all") {
+      items = items.filter((item) => item.category === activeCategory);
     }
 
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       items = items.filter(
-        item =>
+        (item) =>
           item.name.toLowerCase().includes(query) ||
-          item.description.toLowerCase().includes(query)
+          item.description.toLowerCase().includes(query),
       );
     }
 
@@ -130,6 +145,32 @@ const Menu = () => {
                 <Filter className="w-5 h-5" />
                 Filters
               </button>
+
+              <div className="flex items-center gap-3 md:w-auto w-full">
+                <div className="flex items-center gap-2 rounded-2xl bg-white/10 px-4 py-3 min-w-[130px]">
+                  <ShoppingCart className="w-5 h-5 text-primary" />
+                  <div className="flex flex-col leading-tight">
+                    <span className="text-xs text-gray">Cart</span>
+                    <span className="text-sm font-semibold text-white">
+                      {cartCount} • {formatCurrency(cartTotal)}
+                    </span>
+                  </div>
+                </div>
+
+                <a
+                  href={getWhatsAppOrderLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`flex-1 md:flex-none inline-flex items-center justify-center rounded-2xl px-6 py-4 font-semibold whitespace-nowrap transition-colors ${
+                    cartCount > 0
+                      ? "bg-green-500 hover:bg-green-600 text-white"
+                      : "bg-white/10 text-gray pointer-events-none"
+                  }`}
+                  aria-disabled={cartCount === 0}
+                >
+                  Order Now
+                </a>
+              </div>
             </div>
 
             <motion.div

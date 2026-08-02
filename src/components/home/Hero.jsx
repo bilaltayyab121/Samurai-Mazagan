@@ -141,7 +141,7 @@ const Hero = () => {
 
         <motion.h1
           variants={itemVariants}
-          className="text-[42px] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-playfair font-bold mb-6 leading-tight"
+          className="text-[42px] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-playfair font-bold mb-6"
         >
           {text.split("").map((char, i) => (
             <motion.span
