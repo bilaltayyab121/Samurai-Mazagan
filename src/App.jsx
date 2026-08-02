@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import Lenis from 'lenis';
 import { AppProvider } from './context/AppContext';
 import { router } from './routes';
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   useEffect(() => {
@@ -71,6 +72,7 @@ function App() {
             v7_startTransition: true,
           }}
         />
+        <Analytics />
       </AppProvider>
     </HelmetProvider>
   );

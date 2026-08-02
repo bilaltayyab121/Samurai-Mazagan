@@ -52,7 +52,7 @@ const FoodCard = ({ item, index = 0 }) => {
         </div>
 
         <div className="absolute bottom-4 right-4">
-          <div className="px-4 py-2 rounded-full bg-accent text-background font-bold text-lg glass-strong">
+          <div className="px-3 py-1.5 rounded-full bg-accent text-background font-bold text-base glass-strong">
             {formatCurrency(item.price)}
           </div>
         </div>

@@ -141,7 +141,7 @@ const Hero = () => {
 
         <motion.h1
           variants={itemVariants}
-          className="text-[42px] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-playfair font-bold mb-6"
+          className="text-[41px] sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-playfair font-bold mb-6"
         >
           {text.split("").map((char, i) => (
             <motion.span
@@ -235,9 +235,9 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      <div className="absolute bottom-8 lg:bottom-0 left-1/2 -translate-x-1/2 z-20">
+      <div className="absolute bottom-3 sm:bottom-8 lg:bottom-0 left-1/2 -translate-x-1/2 z-20">
         <motion.div
-          className="flex flex-col items-center gap-2 text-gray cursor-pointer"
+          className="flex flex-col items-center gap-1 sm:gap-2 text-gray cursor-pointer"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
@@ -247,7 +247,9 @@ const Hero = () => {
               ?.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
+          <span className="hidden md:block text-xs tracking-widest uppercase">
+            Scroll
+          </span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
