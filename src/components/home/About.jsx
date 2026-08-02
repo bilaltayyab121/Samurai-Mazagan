@@ -4,17 +4,19 @@ import SectionHeading from '../common/SectionHeading';
 import ImageReveal from '../common/ImageReveal';
 import Button from '../common/Button';
 import { staggerContainer, fadeInUp, fadeInLeft, fadeInRight } from '../../utils/motion';
-
+import { galleryImages } from "../../data/gallery";
 const highlights = [
-  { icon: Utensils, label: 'Authentic Japanese flavors' },
-  { icon: Award, label: 'Fresh, premium ingredients' },
-  { icon: Users, label: 'Cozy, welcoming atmosphere' },
-  { icon: Sun, label: 'Rooftop seating with views' },
-  { icon: Music, label: 'Live weekend music' },
-  { icon: Award, label: 'Award-winning chefs' }
+  { icon: Utensils, label: "Authentic Japanese flavors" },
+  { icon: Award, label: "Fresh, premium ingredients" },
+  { icon: Users, label: "Cozy, welcoming atmosphere" },
+  { icon: Sun, label: "Rooftop seating with views" },
+  { icon: Music, label: "Live weekend music" },
+  { icon: Award, label: "Award-winning chefs" },
 ];
 
 const About = () => {
+  const aboutImage = galleryImages[0];
+
   return (
     <motion.section
       id="about"
@@ -35,8 +37,8 @@ const About = () => {
           >
             <div className="relative">
               <ImageReveal
-                src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80"
-                alt="Samurai Mazagan Interior"
+                src={aboutImage.image}
+                alt={aboutImage.title}
                 aspectRatio="aspect-[4/5]"
                 rounded="rounded-3xl"
                 className="shadow-2xl"
